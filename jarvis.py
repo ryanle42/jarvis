@@ -5,13 +5,15 @@ import webbrowser
 import smtplib
 
 def containsWords(wordArr, sentence, option):
+  found = []
   for word in wordArr:
     if word in sentence:
       if option == 'or':
         return True
-    else:
-      if option == 'and':
-        return False
+      else:
+        found.append(word)
+  if option == 'and' and found == wordArr:
+    return True
   return False
 
 def talkToMe(audio):
